@@ -1,0 +1,4 @@
+enum SourceType {
+  dante,
+  postcards
+}
