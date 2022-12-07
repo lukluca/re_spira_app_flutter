@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:re_spira_app_flutter/landscape_locker.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,6 +19,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       home: const StartPage(),
     );
   }
@@ -46,9 +49,9 @@ class _StartPageState extends State<StartPage> {
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _buildDanteIcon(),
+          _buildDanteTextButton(),
           _buildBreathIcon(),
-          _buildPostcardIcon(),
+          _buildPostcardTextButton(),
         ],
       );
 
@@ -76,71 +79,59 @@ class _StartPageState extends State<StartPage> {
         ],
       );
 
-  Widget _buildDanteIcon()
-  {
-    return IconButton(
-        icon: const Icon(
-          Icons.cancel,
-          color: Colors.red,
-        ),
-        onPressed: () {
-        });
-  }
+  Widget _buildDanteTextButton() =>
+      _buildTextButton(AppLocalizations.of(context)!.danteButton);
 
-  Widget _buildPostcardIcon()
-  {
-    return IconButton(
-        icon: const Icon(
-          Icons.cancel,
-          color: Colors.red,
-        ),
-        onPressed: () {
-        });
-  }
 
-  Widget _buildBreathIcon()
-  {
-    return IconButton(
-        icon: const Icon(
-          Icons.cancel,
-          color: Colors.red,
-        ),
-        onPressed: () {
-        });
-  }
+  Widget _buildPostcardTextButton() =>
+      _buildTextButton(AppLocalizations.of(context)!.postcardsButton);
 
-  Widget _buildStopIcon()
-  {
-    return IconButton(
-        icon: const Icon(
-          Icons.cancel,
-          color: Colors.red,
+  Widget _buildTextButton(String text) =>
+      TextButton(
+        style: TextButton.styleFrom(
+          textStyle: const TextStyle(fontSize: 15),
         ),
-        onPressed: () {
-        });
-  }
+        onPressed: () {},
+        child: Text(text),
+      );
 
-  Widget _buildDrawIcon()
-  {
-    return IconButton(
-        icon: const Icon(
-          Icons.cancel,
-          color: Colors.red,
-        ),
-        onPressed: () {
-        });
-  }
+  Widget _buildBreathIcon()  =>
+      IconButton(
+          icon: const Icon(
+            Icons.cancel,
+            color: Colors.red,
+          ),
+          onPressed: () {
+          });
 
-  Widget _buildResetIcon()
-  {
-    return IconButton(
-        icon: const Icon(
-          Icons.cancel,
-          color: Colors.red,
-        ),
-        onPressed: () {
-        });
-  }
+  Widget _buildStopIcon()  =>
+      IconButton(
+          icon: const Icon(
+            Icons.cancel,
+            color: Colors.red,
+          ),
+          onPressed: () {
+          });
+
+
+  Widget _buildDrawIcon() =>
+      IconButton(
+          icon: const Icon(
+            Icons.cancel,
+            color: Colors.red,
+          ),
+          onPressed: () {
+          });
+
+
+  Widget _buildResetIcon() =>
+      IconButton(
+          icon: const Icon(
+            Icons.cancel,
+            color: Colors.red,
+          ),
+          onPressed: () {
+          });
 
   @override
   Widget build(BuildContext context) {
