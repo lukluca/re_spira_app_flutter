@@ -1,0 +1,10 @@
+{
+    "danteButton": "D",
+    "@danteButton": {
+      "description": "Use Dante Section"
+    },
+    "postcardsButton": "P",
+        "@postcardsButton": {
+          "description": "Use Postcards Section"
+        }
+}
